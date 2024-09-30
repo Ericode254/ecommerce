@@ -1,60 +1,74 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <!-- Navigation Bar -->
-    <nav class="bg-white bg-opacity-70 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img width="48" height="48" src="https://img.icons8.com/emoji/48/convenience-store.png" alt="store" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Store</span>
-            </a>
-            <div class="flex items-center md:order-2 space-x-3 rtl:space-x-reverse">
-                <!-- Sign Up / Sign In buttons -->
-                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+  <!-- Navigation Bar -->
+  <nav class="bg-white bg-opacity-70 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img width="48" height="48" src="https://img.icons8.com/emoji/48/convenience-store.png" alt="store" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Store</span>
+        </a>
+        <div class="flex items-center md:order-2 space-x-3 rtl:space-x-reverse">
+            <!-- Dark Mode Toggle Button -->
+            <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600 p-2 rounded-lg">
+                <!-- Sun Icon (for light mode) -->
+                <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.78a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 101.42 1.42l1.41-1.42a1 1 0 000-1.42zM18 10a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 3.78a1 1 0 011.42 0l1.41 1.42a1 1 0 11-1.42 1.42L4.22 5.2a1 1 0 010-1.42zM10 18a1 1 0 01-1-1v-2a1 1 0 012 0v2a1 1 0 01-1 1zm6.78-2.22a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 001.42 1.42l1.41-1.42a1 1 0 000-1.42zM4.22 16.22a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 101.42 1.42l1.41-1.42a1 1 0 000-1.42zM14 10a4 4 0 11-8 0 4 4 0 018 0zm-4 2a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+                <!-- Moon Icon (for dark mode) -->
+                <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M17.293 13.293A8 8 0 116.707 2.707a1 1 0 011.026.225 1 1 0 01.03 1.388 6 6 0 107.9 7.9 1 1 0 011.612 1.064 1 1 0 01-.225 1.026z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile menu button (hamburger) -->
+            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Orders</a>
+                </li>
+                <li>
+                    <a href="#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Sign Up / Sign In buttons -->
+            <div class="block mt-4 md:hidden">
+                <button type="button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-2">
+                    Sign Up
+                </button>
+                <button type="button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Sign In
+                </button>
+            </div>
+
+            <!-- Desktop Sign Up / Sign In buttons -->
+            <div class="hidden md:flex md:ml-auto space-x-2 rtl:space-x-reverse">
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-8">
                     Sign Up
                 </button>
                 <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Sign In
                 </button>
-
-                <!-- Dark Mode Toggle Button -->
-                <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600 p-2 rounded-lg">
-                    <!-- Sun Icon (for light mode) -->
-                    <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.78a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 101.42 1.42l1.41-1.42a1 1 0 000-1.42zM18 10a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 3.78a1 1 0 011.42 0l1.41 1.42a1 1 0 11-1.42 1.42L4.22 5.2a1 1 0 010-1.42zM10 18a1 1 0 01-1-1v-2a1 1 0 012 0v2a1 1 0 01-1 1zm6.78-2.22a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 001.42 1.42l1.41-1.42a1 1 0 000-1.42zM4.22 16.22a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 101.42 1.42l1.41-1.42a1 1 0 000-1.42zM14 10a4 4 0 11-8 0 4 4 0 018 0zm-4 2a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <!-- Moon Icon (for dark mode) -->
-                    <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M17.293 13.293A8 8 0 116.707 2.707a1 1 0 011.026.225 1 1 0 01.03 1.388 6 6 0 107.9 7.9 1 1 0 011.612 1.064 1 1 0 01-.225 1.026z" clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-
-                <!-- Mobile menu button (hamburger) -->
-                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                </button>
-            </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Orders</a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                    </li>
-                </ul>
             </div>
         </div>
-    </nav>
+
+    </div>
+</nav>
+
 
     <!-- Hero Section -->
     <div class="h-screen flex items-center justify-center bg-store bg-cover bg-center overflow-hidden">
