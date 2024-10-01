@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block body %}
-  <!-- Navigation Bar -->
-  <nav class="bg-white bg-opacity-70 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+<!-- Navigation Bar -->
+<nav
+    class="bg-white bg-opacity-70 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img width="48" height="48" src="https://img.icons8.com/emoji/48/convenience-store.png" alt="store" />
@@ -10,57 +11,78 @@
         </a>
         <div class="flex items-center md:order-2 space-x-3 rtl:space-x-reverse">
             <!-- Dark Mode Toggle Button -->
-            <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600 p-2 rounded-lg">
+            <button id="theme-toggle"
+                class="text-gray-500 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600 p-2 rounded-lg">
                 <!-- Sun Icon (for light mode) -->
-                <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.78a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 101.42 1.42l1.41-1.42a1 1 0 000-1.42zM18 10a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 3.78a1 1 0 011.42 0l1.41 1.42a1 1 0 11-1.42 1.42L4.22 5.2a1 1 0 010-1.42zM10 18a1 1 0 01-1-1v-2a1 1 0 012 0v2a1 1 0 01-1 1zm6.78-2.22a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 001.42 1.42l1.41-1.42a1 1 0 000-1.42zM4.22 16.22a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 101.42 1.42l1.41-1.42a1 1 0 000-1.42zM14 10a4 4 0 11-8 0 4 4 0 018 0zm-4 2a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M10 2a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.78a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 101.42 1.42l1.41-1.42a1 1 0 000-1.42zM18 10a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 3.78a1 1 0 011.42 0l1.41 1.42a1 1 0 11-1.42 1.42L4.22 5.2a1 1 0 010-1.42zM10 18a1 1 0 01-1-1v-2a1 1 0 012 0v2a1 1 0 01-1 1zm6.78-2.22a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 001.42 1.42l1.41-1.42a1 1 0 000-1.42zM4.22 16.22a1 1 0 00-1.42 0l-1.41 1.42a1 1 0 101.42 1.42l1.41-1.42a1 1 0 000-1.42zM14 10a4 4 0 11-8 0 4 4 0 018 0zm-4 2a2 2 0 100-4 2 2 0 000 4z"
+                        clip-rule="evenodd"></path>
                 </svg>
                 <!-- Moon Icon (for dark mode) -->
-                <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M17.293 13.293A8 8 0 116.707 2.707a1 1 0 011.026.225 1 1 0 01.03 1.388 6 6 0 107.9 7.9 1 1 0 011.612 1.064 1 1 0 01-.225 1.026z" clip-rule="evenodd"></path>
+                <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M17.293 13.293A8 8 0 116.707 2.707a1 1 0 011.026.225 1 1 0 01.03 1.388 6 6 0 107.9 7.9 1 1 0 011.612 1.064 1 1 0 01-.225 1.026z"
+                        clip-rule="evenodd"></path>
                 </svg>
             </button>
 
             <!-- Mobile menu button (hamburger) -->
-            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+            <button data-collapse-toggle="navbar-sticky" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-sticky" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
                 </svg>
             </button>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul
+                class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                    <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
+                    <a href="#"
+                        class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                        aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products</a>
+                    <a href="#"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Orders</a>
+                    <a href="#"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Orders</a>
                 </li>
                 <li>
-                    <a href="#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    <a href="#contact"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
                 </li>
             </ul>
 
             <!-- Mobile Sign Up / Sign In buttons -->
             <div class="block mt-4 md:hidden">
-                <button type="button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-2">
+                <button type="button"
+                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-2">
                     Sign Up
                 </button>
-                <button type="button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <button type="button"
+                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Sign In
                 </button>
             </div>
 
             <!-- Desktop Sign Up / Sign In buttons -->
             <div class="hidden md:flex md:ml-auto space-x-2 rtl:space-x-reverse">
-                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-8">
+                <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-8">
                     Sign Up
                 </button>
-                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Sign In
                 </button>
             </div>
@@ -70,126 +92,142 @@
 </nav>
 
 
-    <!-- Hero Section -->
-    <div class="h-screen flex items-center justify-center bg-store bg-cover bg-center overflow-hidden">
-        <div class="text-center bg-white bg-opacity-60 p-10 rounded-lg shadow-lg dark:bg-gray-900 dark:bg-opacity-80">
-            <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Welcome to Our Store</h1>
-            <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Find everything you need in one place</p>
-            <a href="#" class="bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-6 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700">Get Started</a>
+<!-- Hero Section -->
+<div class="h-screen flex items-center justify-center bg-store bg-cover bg-center overflow-hidden">
+    <div class="text-center bg-white bg-opacity-60 p-10 rounded-lg shadow-lg dark:bg-gray-900 dark:bg-opacity-80">
+        <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Welcome to Our Store</h1>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Find everything you need in one place</p>
+        <a href="#"
+            class="bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-6 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700">Get
+            Started</a>
+    </div>
+</div>
+
+<!-- Products Section -->
+<section class="py-12 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-screen-xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Featured Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <!-- Product Card -->
+            <div class="bg-white rounded-lg shadow-lg dark:bg-gray-900">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='images/cake.jpg') }}"
+                    alt="Product 1">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Product 1</h3>
+                    <p class="text-gray-700 dark:text-gray-300">This is a short description of the product.</p>
+                    <a href="#" class="inline-block mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg">Learn More</a>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="bg-white rounded-lg shadow-lg dark:bg-gray-900">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='images/cake.jpg') }}"
+                    alt="Product 2">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Product 2</h3>
+                    <p class="text-gray-700 dark:text-gray-300">This is a short description of the product.</p>
+                    <a href="#" class="inline-block mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg">Learn More</a>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="bg-white rounded-lg shadow-lg dark:bg-gray-900">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='images/cake.jpg') }}"
+                    alt="Product 3">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Product 3</h3>
+                    <p class="text-gray-700 dark:text-gray-300">This is a short description of the product.</p>
+                    <a href="#" class="inline-block mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg">Learn More</a>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- Products Section -->
-    <section class="py-12 bg-gray-100 dark:bg-gray-800">
-        <div class="max-w-screen-xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Featured Products</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <!-- Product Card -->
-                <div class="bg-white rounded-lg shadow-lg dark:bg-gray-900">
-                    <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='images/cake.jpg') }}" alt="Product 1">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Product 1</h3>
-                        <p class="text-gray-700 dark:text-gray-300">This is a short description of the product.</p>
-                        <a href="#" class="inline-block mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg">Learn More</a>
-                    </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="bg-white rounded-lg shadow-lg dark:bg-gray-900">
-                    <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='images/cake.jpg') }}" alt="Product 2">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Product 2</h3>
-                        <p class="text-gray-700 dark:text-gray-300">This is a short description of the product.</p>
-                        <a href="#" class="inline-block mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg">Learn More</a>
-                    </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="bg-white rounded-lg shadow-lg dark:bg-gray-900">
-                    <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='images/cake.jpg') }}" alt="Product 3">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Product 3</h3>
-                        <p class="text-gray-700 dark:text-gray-300">This is a short description of the product.</p>
-                        <a href="#" class="inline-block mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg">Learn More</a>
-                    </div>
-                </div>
+<!-- Testimonials Section -->
+<section class="py-12 bg-blue-50 dark:bg-gray-900">
+    <div class="max-w-screen-xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">What Our Customers Say</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Testimonial Card -->
+            <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
+                <p class="text-gray-700 dark:text-gray-300 mb-4">"The best shopping experience I’ve ever had!"</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">- Sarah J.</h3>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
+                <p class="text-gray-700 dark:text-gray-300 mb-4">"Fast delivery and excellent customer service"</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">- John D.</h3>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
+                <p class="text-gray-700 dark:text-gray-300 mb-4">"I love how easy it is to shop with you"</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">- Emily W.</h3>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Testimonials Section -->
-    <section class="py-12 bg-blue-50 dark:bg-gray-900">
-        <div class="max-w-screen-xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">What Our Customers Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Testimonial Card -->
-                <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
-                    <p class="text-gray-700 dark:text-gray-300 mb-4">"The best shopping experience I’ve ever had!"</p>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">- Sarah J.</h3>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
-                    <p class="text-gray-700 dark:text-gray-300 mb-4">"Fast delivery and excellent customer service"</p>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">- John D.</h3>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
-                    <p class="text-gray-700 dark:text-gray-300 mb-4">"I love how easy it is to shop with you"</p>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">- Emily W.</h3>
-                </div>
-            </div>
+<!-- Newsletter Section -->
+<section class="py-12 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-screen-xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Join Our Newsletter</h2>
+        <div class="flex justify-center">
+            <input type="email" placeholder="Enter your email"
+                class="p-3 rounded-l-lg text-gray-900 dark:text-white dark:bg-gray-700 border-2 dark:border-gray-600">
+            <button
+                class="bg-blue-700 text-white p-3 rounded-r-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">Subscribe</button>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Newsletter Section -->
-    <section class="py-12 bg-gray-100 dark:bg-gray-800">
-        <div class="max-w-screen-xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Join Our Newsletter</h2>
-            <div class="flex justify-center">
-                <input type="email" placeholder="Enter your email" class="p-3 rounded-l-lg text-gray-900 dark:text-white dark:bg-gray-700 border-2 dark:border-gray-600">
-                <button class="bg-blue-700 text-white p-3 rounded-r-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">Subscribe</button>
+<!-- Contact Section -->
+<section id="contact" class="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 mt-1">
+    <div class="w-full max-w-lg p-8 bg-white rounded-lg shadow-lg dark:bg-gray-800">
+        <h2 class="text-3xl font-extrabold text-center text-gray-900 dark:text-white mb-8">Get in Touch</h2>
+        <p class="text-center text-gray-600 dark:text-gray-300 mb-8">We'd love to hear from you. Please fill out the
+            form below.</p>
+        <form class="space-y-6">
+            <!-- Name Field -->
+            <div class="relative">
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Your Name</label>
+                <input type="text" id="name"
+                    class="block w-full mt-1 p-3 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border-2 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="John Doe" required>
             </div>
-        </div>
-    </section>
 
-     <!-- Contact Section -->
-     <section id="contact" class="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 mt-1">
-        <div class="w-full max-w-lg p-8 bg-white rounded-lg shadow-lg dark:bg-gray-800">
-            <h2 class="text-3xl font-extrabold text-center text-gray-900 dark:text-white mb-8">Get in Touch</h2>
-            <p class="text-center text-gray-600 dark:text-gray-300 mb-8">We'd love to hear from you. Please fill out the form below.</p>
-            <form class="space-y-6">
-                <!-- Name Field -->
-                <div class="relative">
-                    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Your Name</label>
-                    <input type="text" id="name" class="block w-full mt-1 p-3 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border-2 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500" placeholder="John Doe" required>
-                </div>
-
-                <!-- Email Field -->
-                <div class="relative">
-                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Your Email</label>
-                    <input type="email" id="email" class="block w-full mt-1 p-3 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border-2 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500" placeholder="john@example.com" required>
-                </div>
-
-                <!-- Message Field -->
-                <div class="relative">
-                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
-                    <textarea id="message" class="block w-full mt-1 p-3 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border-2 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500" rows="6" placeholder="Your message here..." required></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="text-center">
-                    <button type="submit" class="inline-block w-full py-3 px-5 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-700 dark:hover:bg-blue-800">
-                        Send Message
-                    </button>
-                </div>
-            </form>
-
-            <!-- Additional Info -->
-            <div class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
-                <p>Or contact us directly via email: <a href="mailto:support@store.com" class="text-blue-600 dark:text-blue-400">support@store.com</a></p>
+            <!-- Email Field -->
+            <div class="relative">
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Your Email</label>
+                <input type="email" id="email"
+                    class="block w-full mt-1 p-3 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border-2 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="john@example.com" required>
             </div>
+
+            <!-- Message Field -->
+            <div class="relative">
+                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+                <textarea id="message"
+                    class="block w-full mt-1 p-3 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border-2 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500"
+                    rows="6" placeholder="Your message here..." required></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit"
+                    class="inline-block w-full py-3 px-5 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-700 dark:hover:bg-blue-800">
+                    Send Message
+                </button>
+            </div>
+        </form>
+
+        <!-- Additional Info -->
+        <div class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+            <p>Or contact us directly via email: <a href="mailto:support@store.com"
+                    class="text-blue-600 dark:text-blue-400">support@store.com</a></p>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <!-- Script for Mobile Menu Toggle -->
-    <script src="{{ url_for('static', filename='src/script.js') }}"></script>
+<!-- Script for Mobile Menu Toggle -->
+<script src="{{ url_for('static', filename='src/script.js') }}"></script>
 {% endblock %}
